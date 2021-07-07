@@ -10,6 +10,22 @@
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
 
 
+/*
+function getEmailDomain( email ) {
+
+    //email.split( email,'@', [ -1 ] )
+    return getEmailDomain(email.split( email,'@', [ -1 ] ))
+
+
+
+}
+
+console.log( getEmailDomain( "n.eeken@novi-education.nl" ))
+console.log( getEmailDomain( "t.mellink@novi.nl" ))
+console.log( getEmailDomain( "a.wiersma@outlook.com" ))
+
+ */
+
 
 
 /* Opdracht  2 */
@@ -19,6 +35,27 @@
 // typeOfEmail("t.mellink@novi.nl") geeft geeft "Medewerker"
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
+
+function typeOfEmail( email ) {
+    //let validity = /\S+@\S+\.\S+/
+   // return validity.test( email )
+
+    if ( typeOfEmail.includes( '@novi' ))
+
+        console.log( 'Medewerker' )
+
+    if ( typeOfEmail.includes( '@novi-edication' ))
+
+        console.log( 'Student' )
+   else {
+        console.log( "Extern" )
+    }
+}
+
+typeOfEmail("t.mellink@novi.nl")
+typeOfEmail("novi.nlaapjesk@outlook.com")
+typeOfEmail("a.wiersma@outlook.com")
+typeOfEmail("a.wiersma@outlook.com")
 
 
 
@@ -34,3 +71,52 @@
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+
+
+
+
+function checkEmailValidity( email ) {
+
+
+
+
+}
+
+
+/*
+if( email.indexOf( '@' )  )
+    return true
+else (email.indexOf( !"@" [ -1 ] ) && email.lastIndexOf( ' . ' [ -1 ] ) && ( email.includes( ' , ' )))
+console.log( false )
+
+
+ */
+
+
+
+function checkEmail( email ) {
+    let validity = /\S+@\S+\.\S+/
+    return validity.test( email )
+}
+
+
+
+
+
+function checkEmailValidity( email ) {
+    let lastAtPos = email.lastIndexOf('@')
+    let lastDotPos = email.lastIndexOf('.')
+    return ( lastAtPos < lastDotPos && lastAtPos > 0 && email.indexOf('@@') == -1 && lastDotPos > 2 && (email.length - lastDotPos ) > 2 )
+}
+
+
+
+console.log( checkEmailValidity("n.eeken@novi.nl" ))
+console.log( checkEmailValidity("tessmellink@novi.nl" ))
+console.log( checkEmailValidity("n.eekenanovi.nl" ))
+console.log( checkEmailValidity("n.eeken@novinl." ))
+console.log( checkEmailValidity("n.eeken@novinl." ))
+console.log( checkEmailValidity("tessmellink@novi,nl" ))
+
+
+
